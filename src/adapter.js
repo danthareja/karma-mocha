@@ -51,13 +51,28 @@ var createMochaReporterConstructor = function (tc, pathname) {
     // - pass
     // - fail
 
+    // By extending an external reporter, we keep all the formatting decisions
+    // centralized in a single repository as the source of truth.
+    // Any changes to the mocha-js-reporter module will change the results displayed here
+    // (assuming this package gets updated as well)
+    window.MochaJSReporter.Base.call(this, runner)
+
     runner.on('start', function () {
       tc.info({total: runner.total})
     })
 
     runner.on('end', function () {
       tc.complete({
-        coverage: window.__coverage__
+        coverage: window.__coverage__,
+        // Since this runner is a subclass of MochaJSReporter.Base,
+        // this .on('end') callback gets scheduled second and therefore
+        // has access to the testResults property set earlier by the
+        // MochaJSReporter.Base reporter.
+        //
+        // The `mochaResults` property will be accessable
+        // programmatically through an instance of a Karma server's
+        // .on('browser_complete') event
+        mochaResults: runner.testResults
       })
     })
 

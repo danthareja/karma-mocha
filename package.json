@@ -1,7 +1,7 @@
 {
-  "name": "karma-mocha",
-  "version": "0.2.0",
-  "description": "A Karma plugin. Adapter for Mocha testing framework.",
+  "name": "karma-mocha-extended",
+  "version": "0.3.0",
+  "description": "Extends the karma-mocha Adapter to include Mocha style test results",
   "main": "lib/index.js",
   "sharedKarmaFiles": {
     "editorconfig": ".editorconfig",
@@ -12,15 +12,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/karma-runner/karma-mocha.git"
+    "url": "git://github.com/danthareja/karma-mocha.git"
   },
   "keywords": [
     "karma-plugin",
     "karma-adapter",
     "mocha"
   ],
-  "author": "Vojta Jina <vojta.jina@gmail.com>",
-  "dependencies": {},
+  "author": "Dan Thareja <danthareja@gmail.com>",
+  "dependencies": {
+    "mocha-js-reporter": "^1.2.0"
+  },
   "devDependencies": {
     "eslint": "^0.22.1",
     "eslint-config-standard": "^2.0.1",
@@ -46,6 +48,7 @@
   },
   "license": "MIT",
   "contributors": [
+    "Vojta Jina <vojta.jina@gmail.com>",
     "Maksim Ryzhikov <rv.maksim@gmail.com>",
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
     "Jordan Klassen <jordan@vidigami.com>",
