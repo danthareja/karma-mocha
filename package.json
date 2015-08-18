@@ -1,6 +1,6 @@
 {
   "name": "karma-mocha-extended",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Extends the karma-mocha Adapter to include Mocha style test results",
   "main": "lib/index.js",
   "sharedKarmaFiles": {
